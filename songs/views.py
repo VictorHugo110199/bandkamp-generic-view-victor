@@ -14,14 +14,19 @@ class SongView(ListCreateAPIView, RetrieveAPIView, PageNumberPagination):
 
     queryset = Song.objects.all()
     serializer_class = SongSerializer
+
+    def get (self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+    
     
     def perform_create(self, serializer):
         album = get_object_or_404(Album, pk=self.kwargs['pk']) 
         serializer.save(album=album)
     
     def get_queryset(self):
-        music = get_object_or_404(Song, pk=self.kwargs['pk'])
-        return Song.objects.filter(id=music.id)
+        album = get_object_or_404(Album, pk=self.kwargs['pk'])
+        return Song.objects.filter(album=album)
+
 
 
     # def get(self, request, pk):
