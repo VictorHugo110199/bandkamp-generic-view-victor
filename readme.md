@@ -1,4 +1,16 @@
-# M5 - BandKamp Generic View
+BandKamp Generic View
+
+## 1. Visão Geral
+
+Visão geral do projeto, um pouco das tecnologias usadas.
+
+- Python
+- Django
+- Django-rest-framework
+- JWT
+- Paginação com APIView
+- Generic View
+</br>
 
 ## Instalação dos pacotes de teste
 
